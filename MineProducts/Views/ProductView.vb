@@ -51,7 +51,7 @@ Namespace Views
             End Set
         End Property
 
-        Public Property ExplosiveDensity As Decimal Implements IProductView.ExplosiveDensity
+        Public Property ExplosiveDensity As String Implements IProductView.ExplosiveDensity
             Get
                 Return ExplosiveDensityTxt.Text
             End Get

@@ -8,7 +8,7 @@ Namespace Views.Interfaces
         ReadOnly Property SelectedMine As Mine
         Property ProductName As String
         Property ApplicationEndUse As String
-        Property ExplosiveDensity As Decimal
+        Property ExplosiveDensity As String
         Property FumeClass As String
     End Interface
 End NameSpace

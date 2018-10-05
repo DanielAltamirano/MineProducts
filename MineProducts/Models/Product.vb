@@ -4,7 +4,7 @@
         Public Property Name As String
         Public Property ApplicationEndUse As String
         Public Property FumeClass As String
-        Public Property ExplosiveDensity As Decimal
+        Public Property ExplosiveDensity As String
         Public Property Mine As Mine
         Public Property ProductSizes As ICollection(Of ProductSize)
     End Class

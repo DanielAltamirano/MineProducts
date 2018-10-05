@@ -44,6 +44,10 @@ Namespace Commands.ProductView
                 MsgBox(IncompleteFieldsErrorCreatingProduct, MsgBoxStyle.Exclamation, ErrorDialogTitleCreatingProduct)
                 Return False
             End If
+            If Not _product.ExplosiveDensity.IsDecimal() Then
+                MsgBox(InvalidFieldsErrorCreatingProduct, MsgBoxStyle.Exclamation, ErrorDialogTitleCreatingProduct)
+                Return False
+            End If
             Return True
         End Function
         
