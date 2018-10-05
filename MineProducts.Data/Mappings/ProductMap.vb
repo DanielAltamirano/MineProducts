@@ -10,7 +10,8 @@ Namespace Mappings
             Map(Function(x) x.FumeClass)
             Map(Function(x) x.ExplosiveDensity)
             Map(Function(x) x.Name)
-            References(Function(x) x.Mine)
+            References(Function(x) x.Mine).Not.LazyLoad()
+            HasMany(Function(x) x.ProductSizes).Not.LazyLoad()
         End Sub
     End Class
 End NameSpace

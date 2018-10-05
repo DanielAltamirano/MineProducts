@@ -59,5 +59,77 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Comma separated values (*.csv)|*.csv.
+        '''</summary>
+        Friend ReadOnly Property CsvSaveDialogFilter() As String
+            Get
+                Return ResourceManager.GetString("CsvSaveDialogFilter", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Error.
+        '''</summary>
+        Friend ReadOnly Property ErrorDialogTitleCreatingProduct() As String
+            Get
+                Return ResourceManager.GetString("ErrorDialogTitleCreatingProduct", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to 0.3048.
+        '''</summary>
+        Friend ReadOnly Property FeetSecToMtsSec() As String
+            Get
+                Return ResourceManager.GetString("FeetSecToMtsSec", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to 25.4.
+        '''</summary>
+        Friend ReadOnly Property InchesToMillimeters() As String
+            Get
+                Return ResourceManager.GetString("InchesToMillimeters", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Incomplete fields. Please check all required fields are complete..
+        '''</summary>
+        Friend ReadOnly Property IncompleteFieldsErrorCreatingProduct() As String
+            Get
+                Return ResourceManager.GetString("IncompleteFieldsErrorCreatingProduct", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Invalid fields. Please check number fields don&apos;t contain letters..
+        '''</summary>
+        Friend ReadOnly Property InvalidFieldsErrorCreatingProduct() As String
+            Get
+                Return ResourceManager.GetString("InvalidFieldsErrorCreatingProduct", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Create.
+        '''</summary>
+        Friend ReadOnly Property NewProductButtonText() As String
+            Get
+                Return ResourceManager.GetString("NewProductButtonText", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Save Mine.
+        '''</summary>
+        Friend ReadOnly Property SaveMineBtnText() As String
+            Get
+                Return ResourceManager.GetString("SaveMineBtnText", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

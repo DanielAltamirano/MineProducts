@@ -2,8 +2,7 @@
 
 Namespace Commands.Interfaces
     Public Interface ICommand
-        Inherits INotifyPropertyChanged
-
+        Property IsEnabled As Boolean
         Sub Execute()
     End Interface
 End Namespace

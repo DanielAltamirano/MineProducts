@@ -7,7 +7,7 @@ Namespace Mappings
         Public Sub New()
             Id(Function(x) x.Id)
             Map(Function(x) x.Name)
-            HasMany(Function(x) x.Products).Inverse()
+            HasMany(Function(x) x.Products).Inverse().Cascade.All()
         End Sub
     End Class
 End NameSpace

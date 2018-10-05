@@ -110,6 +110,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositories\Interfaces\IBaseRepository.vb" />
+    <Compile Include="Repositories\Interfaces\IMineRepository.vb" />
+    <Compile Include="Repositories\Interfaces\IProductRepository.vb" />
+    <Compile Include="Repositories\Interfaces\IProductSizeRepository.vb" />
+    <Compile Include="Repositories\MineRepository.vb" />
+    <Compile Include="Repositories\ProductRepository.vb" />
+    <Compile Include="Repositories\ProductSizeRepository.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -132,8 +139,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

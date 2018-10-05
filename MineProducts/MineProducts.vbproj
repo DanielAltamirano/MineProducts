@@ -51,16 +51,52 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.11\lib\net46\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="Unity.Abstractions, Version=3.3.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.2.5.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.8.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.5.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.9.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -76,12 +112,49 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Interfaces\IValidateCommand.vb" />
+    <Compile Include="Commands\MainView\ExportToCsvCommand.vb" />
+    <Compile Include="Commands\MainView\PrintProductInformationCommand.vb" />
+    <Compile Include="Commands\MainView\SaveProductInformationCommand.vb" />
+    <Compile Include="Commands\MainView\SaveProductSizeInformationCommand.vb" />
+    <Compile Include="Commands\MainView\UpdateMineListOnMainViewCommand.vb" />
+    <Compile Include="Commands\MainView\SaveMineInformationCommand.vb" />
+    <Compile Include="Commands\MainView\UpdateProductListOnMainViewCommand.vb" />
+    <Compile Include="Commands\MineView\AddMineCommand.vb" />
     <Compile Include="Commands\CommandBase.vb" />
     <Compile Include="Commands\Interfaces\ICommand.vb" />
-    <Compile Include="Model\Base.vb" />
-    <Compile Include="Model\Mine.vb" />
-    <Compile Include="Model\ProductSize.vb" />
-    <Compile Include="Model\Product.vb" />
+    <Compile Include="Commands\MineView\ShowMineViewCommand.vb" />
+    <Compile Include="Commands\ProductView\ShowProductViewCommand.vb" />
+    <Compile Include="Commands\ProductView\AddProductCommand.vb" />
+    <Compile Include="Commands\ProductView\UpdateMineListOnProductViewCommand.vb" />
+    <Compile Include="Config\MapperConfig.vb" />
+    <Compile Include="Config\UnityConfig.vb" />
+    <Compile Include="Events\CreateMineMessage.vb" />
+    <Compile Include="Events\CreateProductMessage.vb" />
+    <Compile Include="Events\EventAggregator.vb" />
+    <Compile Include="Events\ExportToCsvMessage.vb" />
+    <Compile Include="Events\Interfaces\IApplicationEvent.vb" />
+    <Compile Include="Events\Interfaces\IEventAggregator.vb" />
+    <Compile Include="Events\PrintProductInformationMessage.vb" />
+    <Compile Include="Events\ProductUpdatedMessage.vb" />
+    <Compile Include="Events\SaveProductSizeInformationMessage.vb" />
+    <Compile Include="Events\UpdateMineListOnMainViewMessage.vb" />
+    <Compile Include="Events\MainViewMineSelectionChangedMessage.vb" />
+    <Compile Include="Events\MineCreatedMessage.vb" />
+    <Compile Include="Events\OpenAddMineViewMessage.vb" />
+    <Compile Include="Events\OpenAddProductViewMessage.vb" />
+    <Compile Include="Events\ProductCreatedMessage.vb" />
+    <Compile Include="Events\SaveMineInformationMessage.vb" />
+    <Compile Include="Events\SaveProductInformationMessage.vb" />
+    <Compile Include="Events\UpdateMineListOnProductViewMessage.vb" />
+    <Compile Include="Events\UpdateProductListOnMainViewMessage.vb" />
+    <Compile Include="Models\Base.vb" />
+    <Compile Include="Models\Mine.vb" />
+    <Compile Include="Models\ProductSize.vb" />
+    <Compile Include="Models\Product.vb" />
+    <Compile Include="Modules\ProductExtensions.vb" />
+    <Compile Include="Modules\ProductSizeExtensions.vb" />
+    <Compile Include="Modules\StringExtensions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,24 +170,60 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Presenters\Interfaces\IViewPresenter.vb" />
+    <Compile Include="Presenters\Interfaces\IMainViewPresenter.vb" />
+    <Compile Include="Presenters\Interfaces\IMineViewPresenter.vb" />
+    <Compile Include="Presenters\Interfaces\IProductViewPresenter.vb" />
+    <Compile Include="Presenters\MainView\MainViewPresenter.Config.vb" />
+    <Compile Include="Presenters\MainView\MainViewPresenter.vb" />
+    <Compile Include="Presenters\MineView\MineViewPresenter.vb" />
+    <Compile Include="Presenters\ProductView\ProductViewPresenter.Config.vb" />
+    <Compile Include="Presenters\ProductView\ProductViewPresenter.vb" />
     <Compile Include="Program.vb" />
-    <Compile Include="Views\IMainFormView.vb" />
-    <Compile Include="Views\MainForm.Designer.vb">
-      <DependentUpon>MainForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainForm.vb">
+    <Compile Include="Services\Interfaces\IMineService.vb" />
+    <Compile Include="Services\Interfaces\IProductService.vb" />
+    <Compile Include="Services\Interfaces\IProductSizeService.vb" />
+    <Compile Include="Services\MineService.vb" />
+    <Compile Include="Services\ProductService.vb" />
+    <Compile Include="Services\ProductSizeService.vb" />
+    <Compile Include="Views\BaseView.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\MineForm.Designer.vb">
-      <DependentUpon>MineForm.vb</DependentUpon>
+    <Compile Include="Views\Interfaces\IFormView.vb" />
+    <Compile Include="Views\Interfaces\IMainFormView.vb" />
+    <Compile Include="Views\Interfaces\IMinesListView.vb" />
+    <Compile Include="Views\Interfaces\IMineView.vb" />
+    <Compile Include="Views\Interfaces\IProductListView.vb" />
+    <Compile Include="Views\Interfaces\IProductView.vb" />
+    <Compile Include="Views\Interfaces\IValidateFieldsView.vb" />
+    <Compile Include="Views\MainFormView.Designer.vb">
+      <DependentUpon>MainFormView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\MineForm.vb">
+    <Compile Include="Views\MainFormView.Interface.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ProductForm.Designer.vb">
-      <DependentUpon>ProductForm.vb</DependentUpon>
+    <Compile Include="Views\MainFormView.vb">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ProductForm.vb">
+    <Compile Include="Views\MineView.Designer.vb">
+      <DependentUpon>MineView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MineView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductView.Designer.vb">
+      <DependentUpon>ProductView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductView.Interface.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductViewPartial.Validation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WorkaroundForDesigner.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -125,17 +234,18 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MainForm.resx">
-      <DependentUpon>MainForm.vb</DependentUpon>
+    <EmbeddedResource Include="Views\MainFormView.resx">
+      <DependentUpon>MainFormView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MineForm.resx">
-      <DependentUpon>MineForm.vb</DependentUpon>
+    <EmbeddedResource Include="Views\MineView.resx">
+      <DependentUpon>MineView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ProductForm.resx">
-      <DependentUpon>ProductForm.vb</DependentUpon>
+    <EmbeddedResource Include="Views\ProductView.resx">
+      <DependentUpon>ProductView.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="MineProducts.Views.MainFormView.datasource" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -147,6 +257,15 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
+    <Compile Include="Presenters\MineView\MineViewPresenter.Config.vb" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MineProducts.Data\MineProducts.Data.vbproj">
+      <Project>{07be638e-d703-4c9d-9822-945f915c0523}</Project>
+      <Name>MineProducts.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

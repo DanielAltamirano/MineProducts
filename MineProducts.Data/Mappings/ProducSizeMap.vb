@@ -10,7 +10,7 @@ Namespace Mappings
             Map(Function(x) x.CartridgeDiameterIn)
             Map(Function(x) x.DetonationVelocityMetersSec)
             Map(Function(x) x.DetonationVelocityFeetSec)
-            References(Function(x) x.Product)
+            References(Function(x) x.Product).Not.LazyLoad()
         End Sub
     End Class
 End NameSpace
